@@ -15,7 +15,7 @@ def main():
     global redis1
     redis1 = redis.Redis(host=(config['REDIS']['HOST']), password=(config['REDIS']['PASSWORD']), port=(config['REDIS']['REDISPORT']))
 
-    # You can set
+    # You can set this logging module, so you will know when and why things do not work as expected
 
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                         level = logging.INFO)
@@ -28,12 +28,16 @@ def main():
     dispatcher.add_handler(CommandHandler("add", add))
     dispatcher.add_handler(CommandHandler("help", help_command))
 
+    #hello command, Q3
+    dispatcher.add_handler(CommandHandler("hello", hello_command))
+
     # To start the bot:
     updater.start_polling()
     updater.idle()
 
 def echo(update, context):
     reply_message = update.message.text.upper()
+    print(reply_message)
     logging.info("Update: " + str(update))
     logging.info("context: " + str(context))
     context.bot.send_message(chat_id=update.effective_chat.id, text=reply_message)
@@ -57,6 +61,16 @@ def add(update: Update, context: CallbackContext) -> None:
     except (IndexError, ValueError):
         update.message.reply_text('Usage: /add <keyword>')
 
+def hello_command(update: Update, context: CallbackContext) -> None:
+    """Send a message when the command /hello is issued."""
+    try:
+        global redis1
+        logging.info(context.args[0])
+        msg = context.args[0]  # /add keyword <-- this should store the keyword
+        redis1.incr(msg)
+        update.message.reply_text('Good day,' + msg + '!')
+    except (IndexError, ValueError):
+        update.message.reply_text('Usage: /hello <keyword>')
 
 if __name__ == '__main__':
     main()
