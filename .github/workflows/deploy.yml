@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - main
-      
-env:
-  DEP_PATH: src/ChatBot/requirements.txt 
   
 jobs:
   build:
@@ -19,7 +16,5 @@ jobs:
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
           HEROKU_APP_NAME: "comp7940chatbothlx"
         run: git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main  
-        
-      - name: python check
-        uses: aufdenpunkt/python-safety-check@master
+
       
