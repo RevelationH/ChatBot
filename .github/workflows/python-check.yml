@@ -4,7 +4,7 @@ on:
     branches:
       - main
 env:
-  DEV_PATH: /requirenment.txt
+  DEV_PATH: /requirement.txt
  
 jobs:
   build:
