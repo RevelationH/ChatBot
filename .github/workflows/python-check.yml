@@ -1,16 +1,12 @@
-name: Python-check
-
+name: python check
 on:
   push:
     branches:
       - main
-
-env:
-  DEP_PATH: /path/to/ChatBot/requirements.txt
-
+      
 jobs:
-  safety-check:
+  build:
     runs-on: ubuntu-latest
     steps:
-         - name: python-check       
-         - uses: aufdenpunkt/python-safety-check@master
+      - name: python check
+      - uses: aufdenpunkt/python-safety-check@master
