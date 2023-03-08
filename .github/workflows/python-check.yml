@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: python check
-        uses: aufdenpunkt/python-safety-check
+        uses: aufdenpunkt/python-safety-check@main
