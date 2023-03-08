@@ -12,4 +12,4 @@
          - uses: actions/checkout@v2   # Step 1: Checks out a copy of your repository on the ubuntu-latest machine
 
          - name: python-check       # Step 2: Type the word 'Hello World'
-           run: aufdenpunkt/python-safety-check@master	
+           run: aufdenpunkt/python-safety-check	
