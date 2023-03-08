@@ -9,7 +9,7 @@
      python-job:
        runs-on: ubuntu-latest   		# Set the type of machine to run on
        steps:
-         - uses: actions/checkout@v2   # Step 1: Checks out a copy of your repository on the ubuntu-latest machine
+         - uses: aufdenpunkt/python-safety-check@master   # Step 1: Checks out a copy of your repository on the ubuntu-latest machine
 
          - name: python-check       # Step 2: Type the word 'Hello World'
            run: aufdenpunkt/python-safety-check	
