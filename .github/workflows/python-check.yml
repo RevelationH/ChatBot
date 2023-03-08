@@ -4,11 +4,11 @@ on:
     branches:
       - main
 env:
-  DEV_PATH: /require.txt
+  DEV_PATH: src/require.txt
  
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Python Safety Check
-        uses: aufdenpunkt/python-safety-check@v1.0.5
+        uses: aufdenpunkt/python-safety-check@v1.0.1
