@@ -15,4 +15,7 @@
            run: |
               echo 'Viewing the file: '   
               cat requirements.txt 
+              
+         - name: Python Safety Check
+           uses: aufdenpunkt/python-safety-check@v1.0.5
 
